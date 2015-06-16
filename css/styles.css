@@ -1,0 +1,227 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* ----- BODY ----- */
+body {
+	padding: 0;
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300; /* this font weight is in the name of the google font chosen */
+	background: url(../images/4.jpg) no-repeat fixed;
+  	background-size: cover;
+}
+
+h1 {
+	font-size: 30px;
+	font-weight: 400;
+	font-family: 'Pacifico', cursive;
+	padding-top: 10px;
+}
+
+a {
+	color: teal; /* will remain this color even when clicked 8c9d87 */
+	text-decoration: none;
+}
+
+/* ----- SHARED STYLES ----- */
+
+nav, .about, footer {
+	background: #FFF; /* can just use #111 */
+	color: #111;
+}
+
+.content-wrap {
+	/*width: 1000px; this fixed value isn't great for responsive*/
+  	max-width: 1000px;
+  	width: 90%;
+  	margin: 0 auto;
+  	padding: 80px 0; /*spacing between sections */
+}
+
+/* ----- NAV -----*/
+nav {
+	text-align: right;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+nav a {
+	display: inline-block;
+	padding: 30px;
+	text-decoration: none;
+	text-transform: uppercase;
+	/*transition: color 0.5s #8c9d87 0.5s;*/
+}
+
+/*nav a:hover {
+	color: #000;
+	background-color: #8c9d87;
+}*/
+
+/*active class is being applied by js when clicked */
+.mainnav a:hover, .mainnav a.active {
+	color: #000;
+	background: #8c9d87;
+}
+
+.logo {
+	font-family: 'Roboto', sans-serif;
+	font-size: 30px;
+	color: #111;
+	text-decoration: none; /*removes the underline for links*/
+	display: inline-block; /* to make inline element behave like block and respect width and height, etc */
+	width: 70px;
+	height: 70px;
+	border: 2px solid #111;
+	border-radius: 50%; /* 50% makes border into perfect circle. use px to round corners, like 10px */	
+	text-align: center; /* centers the text horizontally inside the border box */
+	line-height: 70px; /* if make this same as height of box, will center vertically */
+	padding: 0;
+	float: left;
+	margin: 8px;
+}
+
+.logo:hover {
+	border-color: #8c9d87;
+	color: #8c9d87;
+}
+
+/* ----- HEADER BANNER ----- */
+header {
+	background: linear-gradient(rgba(211,211,211, 0.2), rgba(0, 0, 0, 0.3)), url(../images/nyc-night.jpeg) no-repeat fixed center; /* fixed makes the bg fixed while you scroll */
+	background-size: cover;
+	text-align: center;
+	/*following line controls height of bgimage */
+	padding: 120px 0;  /* top & bottom, left & right  - this is the header image box*/
+}
+
+header h1 {
+	color: #FFF;
+	font-size: 100px;
+	text-shadow: 2px 2px 2px #000;
+	/*font-weight:normal;*/
+}
+
+/* ---- ABOUT ---- */
+
+.about img {
+	border-radius: 50%; 
+	float: right;
+	width: 40%;
+	height: 40%;
+	margin-left: 10px;
+}
+
+
+/* ---- EXTRAS ---- */
+.extras {
+	text-align: center;
+	color: #FFF;
+	text-shadow: 2px 2px 2px #000;
+}
+
+/* ---- FOOTER ---- */
+footer {
+	/*background-color: #AAA;*/
+	margin: 0 auto;
+	padding: 0 250px;
+}
+
+footer .content-wrap {
+	/*height: 450px;*/
+	/*background-size: cover;*/
+	/*background-color: #000;*/
+	display: inline-block;
+}
+
+footer a {
+	text-decoration: none;
+}
+
+.footer-left {
+	float: left;
+	background-color: #FFF;
+	width: 50%;
+	/*padding-bottom: 90px;
+	padding-left: 5px;*/
+	display: inline-block;
+}
+.social {
+	text-decoration: none;
+	list-style-type: none;
+	padding-left: 10px;
+}
+
+.footer-right {
+	float: right;
+	background-color: #FFF;
+	width: 50%;
+	/*padding-bottom: 5px;*/
+	padding-left: 10px;
+	display: inline-block;
+}
+
+
+@media (max-width: 800px) {
+  header {
+    padding: 100px 50px 10px;
+  }
+  header h1 {
+    font-size: 80px;
+  }
+  .content-wrap {
+    padding: 25px 0;
+  }
+  .extras h1 {
+    font-size: 25px;
+  }
+
+  footer {
+	/*background-color: #AAA;*/
+	margin: 0 auto;
+	padding: 0 100px;
+}
+
+}
+
+@media (max-width: 600px) {
+  .logo {
+    margin-left: 25px;
+  }
+  nav a {
+    padding: 32px 15px;
+    font-size: 18px
+  }
+  header, .home {
+    display: none;
+  }
+
+  .about {
+    margin-top: 60px;
+    font-size: 90%;
+  }
+
+  footer {
+  	padding: 100px;
+  }
+
+  .footer-left {
+  	float: none;
+  	width: 100%;
+  }
+
+  .social {
+  	padding: 0;
+  	font-size: 90%;
+  }
+  .footer-right {
+  	display:none;
+  }
+}
